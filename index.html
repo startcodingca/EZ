@@ -1,0 +1,139 @@
+<!-- 
+	Eric's HTML Lesson
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Norman/Eric HTML</title>
+	<link rel="icon" type="image/x-icon" href="https://static-00.iconduck.com/assets.00/firefox-nightly-icon-496x512-nb9rbdh8.png">
+
+	<!-- javascript function -->
+	<script>
+		function alertFunction(){
+			alert("I told you not to click me...");
+		}
+	</script>
+
+	<style>
+		.button234 {
+			background-color: whitesmoke;
+
+		}
+
+		.airlineTable{
+			border-spacing: collapse;
+			border: 1px solid #000;
+			width: 100%;
+			
+			background-color: lightskyblue;
+		}
+
+		.airlineTable th{
+			border-spacing: ;
+			border: 1px solid #000;
+			background-color: lightskyblue;
+		}
+
+		.airlineTable tr{
+			text-align: center;
+		}
+
+		.songTable{
+			padding: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Welcome to Norman.com (h1 header)</h1>
+
+	<button class="button234"
+	onclick="alertFunction()"> Don't click me!</button>
+
+	<p>Yeah, my name is Norman. and I like to xyz.<br>
+		I am currently using Sublime.<br>
+	</p>
+
+	<!-- absolute URL-->
+	<a href="www.google.ca"> Click me</a>
+
+	<!-- relative URL -->
+	<a href="page2.html"> Go to Page 2</a>
+	<br>
+
+<!--
+	<label for="url"> Enter Url: </label>
+	<input type="url" name="url"><br>
+	<input type="submit" value="Submit"><br>
+-->
+
+	<audio controls autoplay>
+		<!-- src = file source.  
+		type = 
+		MP3: audio/mpeg
+		WAV: audio/wav
+		OGG: audio/ogg
+		-->
+		<source src="Audios/Bartender OST 31 - BARTENDER Bartender (piano session KW011).mp3" type="audio/mpeg">
+
+		Audio cannot load: May be browser does not supoport audio element.
+	</audio><br>
+
+
+	<!-- Airline table -->
+	<table class="airlineTable">
+		<tr>
+			<th>AIRLINE</th>
+			<th>Flight No.</th>
+			<th>Departing</th>
+			<th>Arrival</th>
+			<th>Date</th>
+		</tr>
+
+		<tr>
+			<td>Air Canada</td>
+			<td>AC008</td>
+			<td>Vancouver</td>
+			<td>Hong Kong</td>
+			<td>Oct 6, 2023</td>
+		</tr>
+
+		<tr>
+			<td>Delta</td>
+			<td>DC112</td>
+			<td>Vancouver</td>
+			<td>San Fransico</td>
+			<td>Oct 7, 2023</td>
+		</tr>
+	</table><br>
+
+	<table class="songTable">
+		<tr>
+			<th>Artist</th>
+			<th>Song Title</th>
+			<th>Play</th>
+		</tr>
+
+		<tr>
+			<td>Bartender OST</td>
+			<td>Bartender</td>
+			<td>
+				<audio controls>
+					<source src="Audios/Bartender OST 31 - BARTENDER Bartender (piano session KW011).mp3" type="audio/mpeg">
+				</audio>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Bartender OST</td>
+			<td>Christmas Champagne</td>
+			<td>
+				<audio controls>
+					<source src="Audios/Bartender OST 30 - CHRISTMAS CHAMPAGNE Kiyoshikono Yoru.mp3" type="audio/mpeg">
+				</audio>
+			</td>
+		</tr>
+
+	</table>
+</body>
+</html>
