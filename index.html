@@ -1,121 +1,127 @@
+<!-- Eric Z Followalong Index -->
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Random Inc.</title>
-	<link rel="icon" type="image/x-icon" href="Images/icon.png">
-
-	<style>
-
-		.dropdown .dropbtn{
-			font-size: 25px;
-			border: none;
-			outline: none;
-		}
-
-		.dropdown:hover{
-			background-color: #d9d9d9
-		}
-
-		.dropdown-content {
-			display: none;
-			position: absolute;
-			background-color: #f9f9f9;
-			min-width: 160px;
-			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			z-index: 1;
-		}
-
-		.dropdown-content a {
-		    float: none;
-		    color: black;
-		    padding: 12px 16px;
-		    text-decoration: none;
-		    display: block;
-		    text-align: left;
-		}
-
-		.dropdown-content a:hover {
-  			background-color: #ddd;
-		}
-
-		.dropdown:hover .dropdown-content {
-  			display: block;
-		}
-		
-		.topnav {
-			background-color: #f2f2f2;
-		}
-
-		.topnav a{
-			text-align: center;
-			font-family: 'Helvetica', sans-serif;
-			font-size: 25px;
-		}
-
-		.topnav a.active{
-			background-color: #990000;
-			color: #ffffff;
-		}
-
-		.topnav a:hover{
-			background-color: #d9d9d9;
-		}
-
-		.topnav-centered{
-			position: relative;
-			top: 50%;
-			left: 35%;
-			float: none;
-		}
-
-		.wallpaper{
-			text-align: center;
-			padding-top: 30px;
-		}
-
-		.trainImg{
-			max-width: 80%;
-			height: auto;
-		}
-	</style>
-
-</head>
 
 <!--
-	nav bar
-	Contact US
-		try and google how to do drop down menu
-			-phone
-			-menu
-			-google map
+	in our header...
+1. make a title
+2. set the page responsive/mobile friendly
+3. ref bootstrap, ref jquery
+ -->
 
-	https://steamcommunity.com/sharedfiles/filedetails/?id=965651007
--->
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no, width=device-width">
+	<title>Eric Z Followalong DB+HTML+JQuery</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+<style type="text/css">
+.button{
+
+
+}
+
+.buttonGreen{
+	background-color: rgba(0,0,0,0);
+	outline-color: green;
+	color: green;
+	border-color: green;
+	border-radius: 8px;
+	padding: 12px 24px;
+	cursor: pointer;
+}
+
+.buttonGreen:hover{
+	background-color: rgba(50,205,50, 1.0);
+}	
+
+.buttonRed{
+	background-color: rbg(183,0,0);
+	outline-color: black;
+	color: indianred;
+	border-color: black;
+	border-radius: 8px;
+	padding: 12px 24px;
+	cursor: pointer;
+}
+
+.buttonRed:hover{
+	background-color: darkred;
+}	
+
+</style>
+</head>
+
 <body>
-	<div class="topnav">
-		<div class ="topnav-centered">
-			<a href="index.html" class="active">Home</a>
-			<a href="about.html">About Us</a>
-			<a href="faq.html">FAQ</a>
-			<div class = "dropdown">
-				<button class="dropbtn">
-					Contact Us
-					<i class="fa fa-caret-down">
-				</button>
-				<div class="dropdown-content">
-					<a href="#">Phone</a>
-					<a href="#">Email</a>
-					<a href="#">Google Map</a>
-				</div>
-			</div>
 
-			<!--<a href="contact.html">Contact Us</a>-->
-		</div>
-	</div>
+<h3>Item Name</h3>
+<hr>
+<input type="text" name="" class="form-control" id="item">
 
-	<div class="wallpaper">
-		<img src="Images/home_img.gif" alt="rainy train station" class="trainImg">
-	</div>
+<h3>Quantity</h3>
+<hr>
+<input type="number" name="" class="form-control" id="quanitity">
+<br>
+<!-- 
+Button requirement:
+colour
+	bg
+	text
+	outline
+	hover
+horizontal
+-->
+<button type="button" id="insert" class="button buttonGreen">Insert Item</button>
+<button type="button" id="create" class="button buttonGreen">Create Table</button>
+<button type="button" id="remove" class="button buttonRed">Delete Table</button>
+<button type="button" id="list" class="button buttonGreen">Fetch Record</button>
+<hr>
+
+<h3>Record</h3>
+<table></table>
+
+
+<script type="text/javascript">
+				
+				//name of db, version #, description, size of db
+var db=openDatabase("itemDB", "1.0", "itemDB", 65535);
+
+$(function(){
+
+$("#create").click(function(){
+db.transaction(function(transaction){
+
+	//add rules to our table     #id, item, quantity
+	var sql = "CREATE TABLE items "+
+			"(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"+
+			"item VARCHAR(100) NOT NULL,"+
+			"quantity INT(5) NOT NULL)";
+
+	//successful makes a table 
+	transaction.executeSql(sql, undefined, function(){
+		alert("Table has been created successfully.");
+	}, function(){
+		alert("A table already exist.")
+	})
+
+});
+});
+
+
+
+
+
+
+
+
+});
+</script>
+
 
 </body>
+
 </html>
+
+
+
