@@ -34,10 +34,11 @@
                 text: "node",
                 quantity: "1",
             };
-            const tx = db.transaction("nodes", "readwrite");
+            
+            const tx = db.transaction("personal_nodes", "readwrite"); //you typo'd "nodes" instead of "personal_nodes"
 
             tx.onerror = (e) => alert("error: " + e.target.error);
-            const p_node = tx.objectStore("nodes");
+            const p_node = tx.objectStore("personal_nodes"); //you typo'd "nodes" instead of "personal_nodes"
             p_node.add(note);
         }
 
@@ -47,7 +48,7 @@
 
             request.onupgradeneeded = (e) => {
                 const db = e.target.result;
-                const store = db.createObjectStore("personal_nodes", { keyPath: "id", autoIncrement: true });
+                const store = db.createObjectStore("personal_nodes", { keyPath: "title", autoIncrement: true });
             };
 
             request.onsuccess = (e) => {
